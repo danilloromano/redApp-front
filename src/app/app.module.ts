@@ -1,12 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { AppComponent } from './app.component';
 import { routing } from './app.routs';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VideosComponent } from './videos/videos.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
+import { VideoService } from './videos/video.service';
 
 import {
   MatInputModule,
@@ -27,6 +30,7 @@ import {
     HeaderComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     routing,
     BrowserAnimationsModule,
@@ -38,7 +42,7 @@ import {
     MatMenuModule,
     MatSelectModule,
   ],
-  providers: [],
+  providers: [VideoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
